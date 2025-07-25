@@ -1,9 +1,8 @@
-
 {% extends 'base.html' %}
+
 {% load static %}
 
-{% block content % }
-  <main class="main">
+{% block content %}
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
@@ -11,15 +10,65 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Develop Your Football Potential</h1>
-            <p data-aos="fade-up" data-aos-delay="100">Join our academy and become part of the next generation of football stars</p>
-            <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
-              <a href="#programs" class="btn-get-started">Explore Programs <i class="bi bi-arrow-right"></i></a>
-              <a href="#schedule" class="glightbox btn-watch-video d-flex align-items-center justify-content-center ms-0 ms-md-4 mt-4 mt-md-0"><i class="bi bi-calendar3"></i><span>Training Schedule</span></a>
+            <h1 class="display-4 mb-4" data-aos="fade-up">Lions Football Academy</h1>
+            <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+              Developing the Next Generation of Footballers in New Zealand
+            </p>
+            <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+              <p class="text-muted mb-4">
+                Our proven approach, crafted by Ricki Herbert CNZM, empowers young players to reach their maximum potential through personalised mentorship and structured training.
+              </p>
+              <p class="text-muted mb-4">
+                With decades of experience at the highest levels of football, our academy provides a clear pathway to elite football, building champions one player at a time.
+              </p>
+            </div>
+            <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="300">
+              <a href="#programs" class="btn-get-started">Join Our Academy <i class="bi bi-arrow-right"></i></a>
+              <a href="#schedule" class="btn btn-outline-primary mb-3 mb-md-0">
+                View Training Schedule <i class="bi bi-calendar3"></i>
+              </a>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <img src="{% static 'assets/img/hero-training.jpg' %}" class="img-fluid animated" alt="Professional football training session">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="hover">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#heroCarousel" data-bs-slide-to="1"></li>
+              </ol>
+
+              <!-- Slides -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="carousel-image-container">
+                    <img src="{% static 'assets/img/kickgirl.jpg' %}" class="carousel-image" alt="Football player in action">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>Technical Excellence</h3>
+                    <p>Mastering the fundamentals</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="carousel-image-container">
+                    <img src="{% static 'assets/img/kickboy.jpg' %}" class="carousel-image" alt="Training session with coach">
+                  </div>
+                  <div class="carousel-caption">
+                    <h3>Professional Coaching</h3>
+                    <p>Learn from experienced coaches</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -34,13 +83,12 @@
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
             <div class="content">
-              <h3>Our Training Philosophy</h3>
-              <h2>Technical Excellence & Tactical Intelligence</h2>
+              <h3>Our Academy Philosophy</h3>
+              <h2>Developing Champions Through Excellence</h2>
               <p>
-                Our academy focuses on developing complete footballers through a balanced approach of technical skills, tactical awareness, and mental resilience. We believe in nurturing talent from grassroots to professional levels.
+                At Lions Football Academy, we're dedicated to nurturing young talent and developing world-class footballers. Our comprehensive training programs focus on technical skills, tactical understanding, physical fitness, and mental resilience.
               </p>
-              <div class="text-center text-lg-start">
-                <a href="#programs" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+              <div class="text-center text-lg-start">                <a href="#programs" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                   <span>Learn More</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
@@ -49,7 +97,7 @@
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{% static 'assets/img/about-training.jpg' %}" class="img-fluid" alt="Professional football training session">
+            <img src="{% static 'assets/img/withcoach2.jpg' %}" class="img-fluid" alt="Professional football training session">
           </div>
 
         </div>
@@ -58,667 +106,713 @@
     </section><!-- /About Section -->
 
     <!-- Training Programs Section -->
+ 
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2 class="text-center mb-4">Why Choose Us</h2>
+        <p class="text-center mb-5">
+          Experience our comprehensive approach to football development
+        </p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-5">
+          <div class="col-xl-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="100">
+            <img src="{% static 'assets/img/kickgirl.jpg' %}" class="img-fluid rounded-3 shadow-sm" alt="Professional training session">
+          </div>
+
+          <div class="col-xl-6 d-flex">
+            <div class="row align-self-center gy-4">
+              <div class="col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-box d-flex align-items-center">
+                  <div class="feature-icon text-white me-3">
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <div>
+                    <h4>Expert Coaching</h4>
+                    <p>Learn from experienced coaches with proven track records in professional football</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-box d-flex align-items-center">
+                  <div class="feature-icon text-white me-3">
+                    <i class="bi bi-calendar3"></i>
+                  </div>
+                  <div>
+                    <h4>Structured Programs</h4>
+                    <p>Customized training programs for all age groups and skill levels</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-box d-flex align-items-center">
+                  <div class="feature-icon text-white me-3">
+                    <i class="bi bi-trophy"></i>
+                  </div>
+                  <div>
+                    <h4>Performance Tracking</h4>
+                    <p>Regular assessments and progress tracking to ensure continuous improvement</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-box d-flex align-items-center">
+                  <div class="feature-icon text-white me-3">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div>
+                    <h4>Team Development</h4>
+                    <p>Focus on both individual skills and team play fundamentals</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-box d-flex align-items-center">
+                  <div class="feature-icon text-white me-3">
+                    <i class="bi bi-clock"></i>
+                  </div>
+                  <div>
+                    <h4>Flexible Scheduling</h4>
+                    <p>Multiple training sessions per week to fit your schedule</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="700">
+                <div class="feature-box d-flex align-items-center">
+                  <div class="feature-icon text-white me-3">
+                    <i class="bi bi-globe2"></i>
+                  </div>
+                  <div>
+                    <h4>International Exposure</h4>
+                    <p>Opportunities to showcase your skills in national and international tournaments</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Training Programs Section -->
     <section id="programs" class="programs section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Our Training Programs</h2>
-        <p>Choose the right program for your development<br></p>
+        <p>Comprehensive Programs for All Ages and Skill Levels</p>
       </div><!-- End Section Title -->
 
       <div class="container">
 
         <div class="row gy-4">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card">
-              <img src="{% static 'assets/img/program-youth.jpg' %}" class="img-fluid" alt="">
-              <h3>Youth Development</h3>
-              <p>For ages 5-12 - Foundation skills and love for the game</p>
+          <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Youth Development Program</h4>
+                <p class="card-age">Ages 6-12</p>
+                <ul class="card-features">
+                  <li>Basic skills foundation</li>
+                  <li>Team play fundamentals</li>
+                  <li>Physical fitness training</li>
+                  <li>Weekly matches</li>
+                  <li>Parent education sessions</li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-sm mt-3">Learn More</a>
+              </div>
             </div>
-          </div>
+          </div><!-- End Card Item -->
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card">
-              <img src="{% static 'assets/img/program-advanced.jpg' %}" class="img-fluid" alt="">
-              <h3>Advanced Training</h3>
-              <p>For ages 13-18 - Technical mastery and tactical understanding</p>
+          <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Advanced Training Program</h4>
+                <p class="card-age">Ages 13-17</p>
+                <ul class="card-features">
+                  <li>Advanced technical skills</li>
+                  <li>Tactical understanding</li>
+                  <li>Performance analysis</li>
+                  <li>Strength & conditioning</li>
+                  <li>Tournament preparation</li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-sm mt-3">Learn More</a>
+              </div>
             </div>
-          </div>
+          </div><!-- End Card Item -->
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <img src="{% static 'assets/img/program-elite.jpg' %}" class="img-fluid" alt="">
-              <h3>Elite Academy</h3>
-              <p>For top performers - Professional pathway preparation</p>
+          <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">Elite Academy Program</h4>
+                <p class="card-age">Ages 18+</p>
+                <ul class="card-features">
+                  <li>Professional-level training</li>
+                  <li>Scouting and recruitment</li>
+                  <li>Sports psychology</li>
+                  <li>Performance tracking</li>
+                  <li>College placement assistance</li>
+                </ul>
+                <a href="#" class="btn btn-primary btn-sm mt-3">Learn More</a>
+              </div>
             </div>
-          </div>
+          </div><!-- End Card Item -->
 
         </div>
+{{ ... }}
 
       </div>
 
-    </section><!-- /Values Section -->
+    </section><!-- /Training Programs Section -->
 
-    <!-- Academy Achievements Section -->
-    <section id="achievements" class="achievements section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-award color-blue flex-shrink-0"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="45" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Championships Won</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-star color-orange flex-shrink-0" style="color: #ee6c20;"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Professional Players</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-clock color-green flex-shrink-0" style="color: #15be56;"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Hours per Week</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item d-flex align-items-center w-100 h-100">
-              <i class="bi bi-globe color-pink flex-shrink-0" style="color: #bb0852;"></i>
-              <div>
-                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-                <p>International Tours</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Features</h2>
-        <p>Our Advacedd Features<br></p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-xl-6" data-aos="zoom-out" data-aos-delay="100">
-            <img src="assets/img/features.png" class="img-fluid" alt="">
-          </div>
-
-          <div class="col-xl-6 d-flex">
-            <div class="row align-self-center gy-4">
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-box d-flex align-items-center">
-                  <i class="bi bi-check"></i>
-                  <h3>Eos aspernatur rem</h3>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-box d-flex align-items-center">
-                  <i class="bi bi-check"></i>
-                  <h3>Facilis neque ipsa</h3>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="feature-box d-flex align-items-center">
-                  <i class="bi bi-check"></i>
-                  <h3>Volup amet volupt</h3>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="feature-box d-flex align-items-center">
-                  <i class="bi bi-check"></i>
-                  <h3>Rerum omnis sint</h3>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="feature-box d-flex align-items-center">
-                  <i class="bi bi-check"></i>
-                  <h3>Alias possimus</h3>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
-                <div class="feature-box d-flex align-items-center">
-                  <i class="bi bi-check"></i>
-                  <h3>Repellendus molli</h3>
-                </div>
-              </div><!-- End Feature Item -->
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Features Section -->
-
-    <!-- Alt Features Section -->
-    <section id="alt-features" class="alt-features section">
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-xl-7 d-flex order-2 order-xl-1" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="row align-self-center gy-5">
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-award"></i>
-                <div>
-                  <h4>Corporis voluptates sit</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-card-checklist"></i>
-                <div>
-                  <h4>Ullamco laboris nisi</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-dribbble"></i>
-                <div>
-                  <h4>Labore consequatur</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-filter-circle"></i>
-                <div>
-                  <h4>Beatae veritatis</h4>
-                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-lightning-charge"></i>
-                <div>
-                  <h4>Molestiae dolor</h4>
-                  <p>Et fuga et deserunt et enim. Dolorem architecto ratione tensa raptor marte</p>
-                </div>
-              </div><!-- End Feature Item -->
-
-              <div class="col-md-6 icon-box">
-                <i class="bi bi-patch-check"></i>
-                <div>
-                  <h4>Explicabo consectetur</h4>
-                  <p>Est autem dicta beatae suscipit. Sint veritatis et sit quasi ab aut inventore</p>
-                </div>
-              </div><!-- End Feature Item -->
-
-            </div>
-
-          </div>
-
-          <div class="col-xl-5 d-flex align-items-center order-1 order-xl-2" data-aos="fade-up" data-aos-delay="100">
-            <img src="assets/img/alt-features.png" class="img-fluid" alt="">
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /Alt Features Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Check Our Services<br></p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
-              <i class="bi bi-activity icon"></i>
-              <h3>Nesciunt Mete</h3>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
-              <i class="bi bi-broadcast icon"></i>
-              <h3>Eosle Commodi</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
-              <i class="bi bi-easel icon"></i>
-              <h3>Ledo Markt</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
-              <i class="bi bi-bounding-box-circles icon"></i>
-              <h3>Asperiores Commodi</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item item-indigo position-relative">
-              <i class="bi bi-calendar4-week icon"></i>
-              <h3>Velit Doloremque.</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item item-pink position-relative">
-              <i class="bi bi-chat-square-text icon"></i>
-              <h3>Dolori Architecto</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>Check Our Affordable Pricing<br></p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-tem">
-              <h3 style="color: #20c997;">Free Plan</h3>
-              <div class="price"><sup>$</sup>0<span> / mo</span></div>
-              <div class="icon">
-                <i class="bi bi-box" style="color: #20c997;"></i>
-              </div>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <a href="#" class="btn-buy">Buy Now</a>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-tem">
-              <span class="featured">Featured</span>
-              <h3 style="color: #0dcaf0;">Starter Plan</h3>
-              <div class="price"><sup>$</sup>19<span> / mo</span></div>
-              <div class="icon">
-                <i class="bi bi-send" style="color: #0dcaf0;"></i>
-              </div>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <a href="#" class="btn-buy">Buy Now</a>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-tem">
-              <h3 style="color: #fd7e14;">Business Plan</h3>
-              <div class="price"><sup>$</sup>29<span> / mo</span></div>
-              <div class="icon">
-                <i class="bi bi-airplane" style="color: #fd7e14;"></i>
-              </div>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <a href="#" class="btn-buy">Buy Now</a>
-            </div>
-          </div><!-- End Pricing Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="pricing-tem">
-              <h3 style="color: #0d6efd;">Ultimate Plan</h3>
-              <div class="price"><sup>$</sup>49<span> / mo</span></div>
-              <div class="icon">
-                <i class="bi bi-rocket" style="color: #0d6efd;"></i>
-              </div>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <a href="#" class="btn-buy">Buy Now</a>
-            </div>
-          </div><!-- End Pricing Item -->
-
-        </div><!-- End pricing row -->
-
-      </div>
-
-    </section><!-- /Pricing Section -->
 
     <!-- Faq Section -->
     <section id="faq" class="faq section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>F.A.Q</h2>
-        <p>Frequently Asked Questions</p>
+        <h2>Frequently Asked Questions</h2>
+        <p>Answers to your football academy questions</p>
       </div><!-- End Section Title -->
 
       <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="faq-container">
-
-              <div class="faq-item faq-active">
-                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
-                <div class="faq-content">
-                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
-                <div class="faq-content">
-                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                <i class="bi bi-question-circle me-2"></i>
+                What age groups do you accept?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <p>We offer programs for players aged 6 to 18+ years old, with specialized training for different age groups:</p>
+                <ul>
+                  <li>6-12 years: Youth Development Program</li>
+                  <li>13-17 years: Advanced Training Program</li>
+                  <li>18+ years: Elite Academy Program</li>
+                </ul>
+              </div>
             </div>
+          </div>
 
-          </div><!-- End Faq Column-->
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="faq-container">
-
-              <div class="faq-item">
-                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
-                <div class="faq-content">
-                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h3>
-                <div class="faq-content">
-                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
-              <div class="faq-item">
-                <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
-                <div class="faq-content">
-                  <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                <i class="bi bi-question-circle me-2"></i>
+                What is the training schedule?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <p>Our training sessions are held:</p>
+                <ul>
+                  <li>Monday to Friday: 4:00 PM - 6:00 PM</li>
+                  <li>Saturday: 9:00 AM - 12:00 PM</li>
+                  <li>Sunday: Rest day</li>
+                </ul>
+                <p>Additional match training on Saturdays</p>
+              </div>
             </div>
+          </div>
 
-          </div><!-- End Faq Column-->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                <i class="bi bi-question-circle me-2"></i>
+                Do you provide equipment?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <p>Yes, we provide:</p>
+                <ul>
+                  <li>Training balls</li>
+                  <li>Cones and markers</li>
+                  <li>Goalposts and nets</li>
+                  <li>Practice vests</li>
+                </ul>
+                <p>Players need to bring their own:</p>
+                <ul>
+                  <li>Cleats</li>
+                  <li>Shin guards</li>
+                  <li>Water bottle</li>
+                  <li>Training attire</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                <i class="bi bi-question-circle me-2"></i>
+                What is the trial period?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <p>We offer a 2-week trial period where:</p>
+                <ul>
+                  <li>Players can experience our training methods</li>
+                  <li>Coaches evaluate player's skills</li>
+                  <li>Parents can observe the program</li>
+                </ul>
+                <p>After the trial, we provide feedback and recommendations for the best program fit.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                <i class="bi bi-question-circle me-2"></i>
+                How do you measure progress?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <p>We use a comprehensive evaluation system that includes:</p>
+                <ul>
+                  <li>Technical skills assessment</li>
+                  <li>Tactical understanding evaluation</li>
+                  <li>Physical fitness testing</li>
+                  <li>Mental game analysis</li>
+                </ul>
+                <p>Regular progress reports are provided to players and parents.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                <i class="bi bi-question-circle me-2"></i>
+                What opportunities are available for advanced players?
+              </button>
+            </h2>
+            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                <p>Our academy offers:</p>
+                <ul>
+                  <li>Scouting opportunities for professional clubs</li>
+                  <li>College placement assistance</li>
+                  <li>International tournament participation</li>
+                  <li>Professional development workshops</li>
+                </ul>
+                <p>We have partnerships with professional clubs and scouts to help players reach their full potential.</p>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
 
     </section><!-- /Faq Section -->
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+    <!-- Gallery Section -->
+    <style>
+      /* Base font size */
+      body {
+        font-size: 16px;
+        line-height: 1.6;
+      }
 
+      /* Card styles */
+      .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-body {
+        padding: 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: #212529;
+      }
+
+      .card-age {
+        font-size: 1.2rem;
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+      }
+
+      .card-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .card-features li {
+        margin-bottom: 1rem;
+        color: #495057;
+      }
+
+      .btn-primary {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* Carousel styles */
+      .carousel-image-container {
+        width: 100%;
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .carousel-image {
+        max-width: 100%;
+        max-height: 600px;
+        object-fit: contain;
+      }
+
+      /* Heading sizes */
+      h1 {
+        font-size: 3.5rem;
+        line-height: 1.2;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+      }
+
+      h3 {
+        font-size: 2rem;
+        line-height: 1.3;
+      }
+
+      h4 {
+        font-size: 1.5rem;
+        line-height: 1.4;
+      }
+
+      h5 {
+        font-size: 1.25rem;
+        line-height: 1.4;
+      }
+
+      h6 {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      /* Paragraph text */
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      /* Button and link text */
+      .btn {
+        font-size: 1.1rem;
+        padding: 0.75rem 1.5rem;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+      }
+
+      .filter-btn {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+      }
+
+      /* Card text */
+      .card-title {
+        font-size: 1.5rem;
+      }
+
+      .card-text {
+        font-size: 1.1rem;
+      }
+
+      /* Badge text */
+      .badge {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+
+      /* Gallery overlay text */
+      .gallery-overlay h4 {
+        font-size: 1.3rem;
+        margin: 0 0 0.75rem 0;
+      }
+
+      .gallery-overlay p {
+        font-size: 1rem;
+        margin: 0 0 1rem 0;
+      }
+
+      .gallery-filters {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: none;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        color: #6c757d;
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background-color: #0d6efd;
+        color: white;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      .gallery-overlay h4 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+      }
+
+      .gallery-overlay p {
+        margin: 0 0 1rem 0;
+        font-size: 0.9rem;
+      }
+
+      .gallery-link {
+        color: #0d6efd;
+        text-decoration: none;
+        display: inline-block;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+      }
+
+      .gallery-link:hover {
+        background-color: #0d6efd;
+      }
+
+      @media (max-width: 1200px) {
+        .gallery-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <style>
+      .gallery-filters {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        background: none;
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        color: #6c757d;
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background-color: #0d6efd;
+        color: white;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      .gallery-overlay h4 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.2rem;
+      }
+
+      .gallery-overlay p {
+        margin: 0 0 1rem 0;
+        font-size: 0.9rem;
+      }
+
+      .gallery-link {
+        color: #0d6efd;
+        text-decoration: none;
+        display: inline-block;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+      }
+
+      .gallery-link:hover {
+        background-color: #0d6efd;
+      }
+
+      @media (max-width: 1200px) {
+        .gallery-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-filters {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+    <section id="gallery" class="gallery section">
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Check our latest work</p>
-      </div><!-- End Section Title -->
+        <h2>Gallery</h2>
+        <p>Training Moments & Academy Highlights</p>
+      </div>
 
       <div class="container">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Product</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-books">Books</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
+        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+          {% for item in gallery_items %}
+          <div class="gallery-item filter-{{ item.category }}">
+            <a href="{{ item.image.url }}" class="glightbox gallery-link" data-gallery="gallery-items">
+              <img src="{{ item.image.url }}" alt="{{ item.title }}" class="gallery-image">
+              <div class="gallery-overlay">
+                <h4>{{ item.title }}</h4>
+                <p>{{ item.description }}</p>
               </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-3.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
+            </a>
+          </div>
+          {% endfor %}
         </div>
-
       </div>
-
-    </section><!-- /Portfolio Section -->
+    </section><!-- /Gallery Section -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
@@ -897,26 +991,6 @@
               </div>
             </div>
           </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member">
               <div class="member-img">
@@ -941,180 +1015,6 @@
       </div>
 
     </section><!-- /Team Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Clients</h2>
-        <p>We work with best clients<br></p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
-    <!-- Recent Posts Section -->
-    <section id="recent-posts" class="recent-posts section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Recent Posts</h2>
-        <p>Recent posts form our Blog</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-1.jpg" class="img-fluid" alt="">
-                <span class="post-date">December 12</span>
-              </div>
-
-              <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
-
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
-                  </div>
-                </div>
-
-                <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-              </div>
-
-            </div>
-          </div><!-- End post item -->
-
-          <div class="col-xl-4 col-md-6">
-            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-2.jpg" class="img-fluid" alt="">
-                <span class="post-date">July 17</span>
-              </div>
-
-              <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Et repellendus molestiae qui est sed omnis</h3>
-
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Mario Douglas</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Sports</span>
-                  </div>
-                </div>
-
-                <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-              </div>
-
-            </div>
-          </div><!-- End post item -->
-
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="post-item position-relative h-100">
-
-              <div class="post-img position-relative overflow-hidden">
-                <img src="assets/img/blog/blog-3.jpg" class="img-fluid" alt="">
-                <span class="post-date">September 05</span>
-              </div>
-
-              <div class="post-content d-flex flex-column">
-
-                <h3 class="post-title">Quia assumenda est et veritati tirana ploder</h3>
-
-                <div class="meta d-flex align-items-center">
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Lisa Hunter</span>
-                  </div>
-                  <span class="px-3 text-black-50">/</span>
-                  <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Economics</span>
-                  </div>
-                </div>
-
-                <hr>
-
-                <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-
-              </div>
-
-            </div>
-          </div><!-- End post item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Recent Posts Section -->
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -1212,5 +1112,5 @@
 
   </main>
 
-  {}
- 
+
+{% endblock %}
