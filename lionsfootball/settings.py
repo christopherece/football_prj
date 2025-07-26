@@ -121,10 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'lionsfootball/static')
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'lionsfootball/static'),
 ]
 
 # Media Foder Settings 
@@ -149,4 +150,7 @@ MESSAGE_TAGS = {
 try:
     from .local_settings import *
 except ImportError:
-    pass
+    try:
+        from .settings_production import *
+    except ImportError:
+        pass
