@@ -155,7 +155,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 120px;
   margin-right: 8px;
 }
 
@@ -170,7 +170,7 @@ h6 {
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
   background: var(--accent-color);
-  font-size: 15px;
+  font-size: 20px;
   padding: 8px 25px;
   margin: 0 0 0 30px;
   border-radius: 4px;
@@ -837,7 +837,7 @@ section,
   padding: 80px 0 60px 0;
   display: flex;
   align-items: center;
-  background: url(../img/kickgirl.jpg) top center no-repeat;
+  background: url(../img/hero-bg.png) top center no-repeat;
   background-size: cover;
 }
 
