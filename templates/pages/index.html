@@ -43,22 +43,16 @@
                   <div class="carousel-image-container">
                     <img src="{% static 'assets/img/kickgirl.jpg' %}" class="carousel-image" alt="Football player in action">
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Technical Excellence</h3>
-                    <p>Mastering the fundamentals</p>
-                  </div>
+                 
                 </div>
                 <div class="carousel-item">
                   <div class="carousel-image-container">
                     <img src="{% static 'assets/img/kickboy.jpg' %}" class="carousel-image" alt="Training session with coach">
                   </div>
-                  <div class="carousel-caption">
-                    <h3>Professional Coaching</h3>
-                    <p>Learn from experienced coaches</p>
-                  </div>
+                  
                 </div>
               </div>
-
+ 
               <!-- Controls -->
               <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -925,23 +919,37 @@
           overflow: hidden;
         }
 
+        /* Hide carousel indicators */
+        .carousel-indicators {
+          display: none;
+        }
+
+        /* Style carousel controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+          opacity: 0.7;
+          transition: opacity 0.3s ease;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+          opacity: 1;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        /* Hide carousel captions */
         .carousel-caption {
-          bottom: 2rem;
-          left: 2rem;
-          right: 2rem;
-          padding: 1.5rem;
-          background: rgba(0, 0, 0, 0.7);
-          color: white;
-          border-radius: 12px;
-        }
-
-        .carousel-caption h3 {
-          font-size: 1.5rem;
-          margin-bottom: 0.5rem;
-        }
-
-        .carousel-caption p {
-          font-size: 1rem;
+          display: none;
         }
       }
 
