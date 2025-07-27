@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Training Schedule Section -->
+<section id="training" class="section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-4 fw-bold mb-4" style="color: #012970;" data-aos="fade-up">Training Schedules</h2>
+        <p class="lead text-muted mb-4" data-aos="fade-up" data-aos-delay="100">
+          Our structured training programs are designed to develop players of all ages and skill levels.
+          Choose the schedule that best fits your needs and start your football journey today!
+        </p>
+      </div>
+    </div>
+
+    <!-- Training Schedule Grid -->
+    <div class="row g-4">
+      <!-- Monday Schedule -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="rounded-circle bg-primary text-white p-2 me-3">
+                <i class="bi bi-calendar3 fs-4"></i>
+              </div>
+              <h3 class="h5 mb-0">Monday</h3>
+            </div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <h4 class="mb-1">Beginners (5-8 years)</h4>
+                <p class="text-muted mb-2">4:00 PM - 5:00 PM</p>
+                <p class="text-muted">Basic skills, fun games, and team building</p>
+              </div>
+              <div class="schedule-item">
+                <h4 class="mb-1">Youth (9-12 years)</h4>
+                <p class="text-muted mb-2">5:15 PM - 6:30 PM</p>
+                <p class="text-muted">Technical skills, small-sided games</p>
+              </div>
+              <div class="schedule-item">
+                <h4 class="mb-1">Advanced (13+ years)</h4>
+                <p class="text-muted mb-2">6:45 PM - 8:30 PM</p>
+                <p class="text-muted">Advanced tactics, match preparation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wednesday Schedule -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="rounded-circle bg-primary text-white p-2 me-3">
+                <i class="bi bi-calendar3 fs-4"></i>
+              </div>
+              <h3 class="h5 mb-0">Wednesday</h3>
+            </div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <h4 class="mb-1">Technical Skills</h4>
+                <p class="text-muted mb-2">4:00 PM - 5:30 PM</p>
+                <p class="text-muted">Ball control, dribbling, passing</p>
+              </div>
+              <div class="schedule-item">
+                <h4 class="mb-1">Tactical Training</h4>
+                <p class="text-muted mb-2">5:45 PM - 7:15 PM</p>
+                <p class="text-muted">Team formations, positioning, game strategy</p>
+              </div>
+              <div class="schedule-item">
+                <h4 class="mb-1">Fitness & Conditioning</h4>
+                <p class="text-muted mb-2">7:30 PM - 8:30 PM</p>
+                <p class="text-muted">Speed, agility, endurance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Friday Schedule -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="rounded-circle bg-primary text-white p-2 me-3">
+                <i class="bi bi-calendar3 fs-4"></i>
+              </div>
+              <h3 class="h5 mb-0">Friday</h3>
+            </div>
+            <div class="schedule-list">
+              <div class="schedule-item">
+                <h4 class="mb-1">Match Practice</h4>
+                <p class="text-muted mb-2">4:00 PM - 6:00 PM</p>
+                <p class="text-muted">Full-sided games, match scenarios</p>
+              </div>
+              <div class="schedule-item">
+                <h4 class="mb-1">Goalkeeper Training</h4>
+                <p class="text-muted mb-2">6:15 PM - 7:15 PM</p>
+                <p class="text-muted">Specialized goalkeeper drills</p>
+              </div>
+              <div class="schedule-item">
+                <h4 class="mb-1">Team Meetings</h4>
+                <p class="text-muted mb-2">7:30 PM - 8:00 PM</p>
+                <p class="text-muted">Video analysis, team discussions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="bg-light p-4 rounded-3">
+          <h3 class="h4 mb-3">Important Information</h3>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle bg-primary text-white p-2 me-3">
+                  <i class="bi bi-info-circle fs-4"></i>
+                </div>
+                <div>
+                  <h4 class="mb-1">Location</h4>
+                  <p class="text-muted mb-0">20A Willis Road, Papakura</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle bg-primary text-white p-2 me-3">
+                  <i class="bi bi-people fs-4"></i>
+                </div>
+                <div>
+                  <h4 class="mb-1">Requirements</h4>
+                  <p class="text-muted mb-0">Football boots, shin guards, water bottle</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle bg-primary text-white p-2 me-3">
+                  <i class="bi bi-clock fs-4"></i>
+                </div>
+                <div>
+                  <h4 class="mb-1">Arrival Time</h4>
+                  <p class="text-muted mb-0">Please arrive 15 minutes early</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex align-items-center mb-3">
+                <div class="rounded-circle bg-primary text-white p-2 me-3">
+                  <i class="bi bi-chat-dots fs-4"></i>
+                </div>
+                <div>
+                  <h4 class="mb-1">Contact</h4>
+                  <p class="text-muted mb-0">For more info: 022 062 9280</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Register Button -->
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <a href="{% url 'accounts:register' %}" class="btn btn-primary px-5 py-3">
+          Register for Training <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
