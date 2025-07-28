@@ -779,7 +779,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 160px 0;
+  padding: 160px 80px 0 0;
   scroll-margin-top: 98px;
   overflow: clip;
 }
@@ -832,9 +832,7 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 100vh;
   position: relative;
-  padding: 80px 0 60px 0;
   display: flex;
   align-items: center;
   background: url(../img/hero-bg.png) top center no-repeat;
