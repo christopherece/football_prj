@@ -15,101 +15,42 @@
       </div>
     </div>
 
-    <!-- Training Schedule Grid -->
-    <div class="row g-4">
-      <!-- Monday Schedule -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-3">
-              <div class="rounded-circle bg-primary text-white p-2 me-3">
-                <i class="bi bi-calendar3 fs-4"></i>
-              </div>
-              <h3 class="h5 mb-0">Monday</h3>
-            </div>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <h4 class="mb-1">Beginners (5-8 years)</h4>
-                <p class="text-muted mb-2">4:00 PM - 5:00 PM</p>
-                <p class="text-muted">Basic skills, fun games, and team building</p>
-              </div>
-              <div class="schedule-item">
-                <h4 class="mb-1">Youth (9-12 years)</h4>
-                <p class="text-muted mb-2">5:15 PM - 6:30 PM</p>
-                <p class="text-muted">Technical skills, small-sided games</p>
-              </div>
-              <div class="schedule-item">
-                <h4 class="mb-1">Advanced (13+ years)</h4>
-                <p class="text-muted mb-2">6:45 PM - 8:30 PM</p>
-                <p class="text-muted">Advanced tactics, match preparation</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- Training Images Section -->
+<section id="training-images" class="section bg-light">
+  <div class="container">
 
-      <!-- Wednesday Schedule -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-3">
-              <div class="rounded-circle bg-primary text-white p-2 me-3">
-                <i class="bi bi-calendar3 fs-4"></i>
-              </div>
-              <h3 class="h5 mb-0">Wednesday</h3>
-            </div>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <h4 class="mb-1">Technical Skills</h4>
-                <p class="text-muted mb-2">4:00 PM - 5:30 PM</p>
-                <p class="text-muted">Ball control, dribbling, passing</p>
-              </div>
-              <div class="schedule-item">
-                <h4 class="mb-1">Tactical Training</h4>
-                <p class="text-muted mb-2">5:45 PM - 7:15 PM</p>
-                <p class="text-muted">Team formations, positioning, game strategy</p>
-              </div>
-              <div class="schedule-item">
-                <h4 class="mb-1">Fitness & Conditioning</h4>
-                <p class="text-muted mb-2">7:30 PM - 8:30 PM</p>
-                <p class="text-muted">Speed, agility, endurance</p>
-              </div>
-            </div>
-          </div>
+    {% if photos %}
+    <div class="row g-5">
+      {% for photo in photos %}
+      <div class="col-12" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+        <div class="training-photo-container mb-4">
+          <img 
+            src="{{ photo.image.url }}" 
+            class="img-fluid w-100 rounded shadow" 
+            alt="{{ photo.title }}"
+            style="max-height: 80vh; object-fit: contain;"
+            loading="lazy"
+          >
         </div>
+        {% if photo.title %}
+        <div class="text-center mb-5">
+          <h3 class="h4 mb-1">{{ photo.title }}</h3>
+          <p class="text-muted">Posted on {{ photo.created_at|date:"F j, Y" }}</p>
+        </div>
+        {% endif %}
       </div>
-
-      <!-- Friday Schedule -->
-      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-3">
-              <div class="rounded-circle bg-primary text-white p-2 me-3">
-                <i class="bi bi-calendar3 fs-4"></i>
-              </div>
-              <h3 class="h5 mb-0">Friday</h3>
-            </div>
-            <div class="schedule-list">
-              <div class="schedule-item">
-                <h4 class="mb-1">Match Practice</h4>
-                <p class="text-muted mb-2">4:00 PM - 6:00 PM</p>
-                <p class="text-muted">Full-sided games, match scenarios</p>
-              </div>
-              <div class="schedule-item">
-                <h4 class="mb-1">Goalkeeper Training</h4>
-                <p class="text-muted mb-2">6:15 PM - 7:15 PM</p>
-                <p class="text-muted">Specialized goalkeeper drills</p>
-              </div>
-              <div class="schedule-item">
-                <h4 class="mb-1">Team Meetings</h4>
-                <p class="text-muted mb-2">7:30 PM - 8:00 PM</p>
-                <p class="text-muted">Video analysis, team discussions</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+      <div class="alert alert-info">
+        <i class="bi bi-images me-2"></i> No training photos available yet. Check back soon!
       </div>
     </div>
+    {% endif %}
+  </div>
+</section>
+
 
     <!-- Additional Information -->
     <div class="row mt-5">
@@ -176,4 +117,18 @@
     </div>
   </div>
 </section>
+
+
+<style>
+  #training-image .card {
+    border: none;
+    background: transparent;
+  }
+  #training-image .card img {
+    transition: transform 0.3s ease;
+  }
+  #training-image .card:hover img {
+    transform: scale(1.02);
+  }
+</style>
 {% endblock %}

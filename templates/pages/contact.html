@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Contact Us</h2>
+    <p>Get in touch with our team</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
+      <div class="col-lg-6">
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+          <i class="bi bi-geo-alt flex-shrink-0"></i>
+          <div>
+            <h3>Location</h3>
+            <p>123 Football Street, Auckland, New Zealand</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+          <i class="bi bi-envelope flex-shrink-0"></i>
+          <div>
+            <h3>Email Us</h3>
+            <p>info@lionsfootball.nz</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <i class="bi bi-phone flex-shrink-0"></i>
+          <div>
+            <h3>Call Us</h3>
+            <p>+64 9 123 4567</p>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+          <i class="bi bi-clock flex-shrink-0"></i>
+          <div>
+            <h3>Opening Hours</h3>
+            <div>Monday - Friday: 9:00 AM - 6:00 PM</div>
+            <div>Saturday: 9:00 AM - 2:00 PM</div>
+            <div>Sunday: Closed</div>
+          </div>
+        </div><!-- End Info Item -->
+      </div>
+
+      <div class="col-lg-6">
+        <form action="{% url 'pages:contact' %}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          {% csrf_token %}
+          
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          {% endif %}
+          
+          <div class="row gy-4">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+            </div>
+
+            <div class="col-md-6 ">
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+              </div>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5" data-aos="fade-up" data-aos-delay="300">
+    <div class="map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51063.64720987635!2d174.700001!3d-36.84846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47fb5a9ce6fb%3A0x500ef6143a29907!2sAuckland%2C%20New%20Zealand!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section><!-- End Contact Section -->
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  // Form submission handling
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.php-email-form');
+    
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const loading = form.querySelector('.loading');
+        const errorMessage = form.querySelector('.error-message');
+        const sentMessage = form.querySelector('.sent-message');
+        
+        // Show loading state
+        loading.style.display = 'block';
+        errorMessage.style.display = 'none';
+        sentMessage.style.display = 'none';
+        submitButton.disabled = true;
+        
+        // Submit form via AJAX
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-CSRFToken': form.querySelector('[name=csrfmiddlewaretoken]').value
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          loading.style.display = 'none';
+          
+          if (data.success) {
+            sentMessage.style.display = 'block';
+            form.reset();
+          } else {
+            throw new Error(data.message || 'Form submission failed');
+          }
+        })
+        .catch(error => {
+          loading.style.display = 'none';
+          errorMessage.textContent = error.message || 'An error occurred. Please try again.';
+          errorMessage.style.display = 'block';
+        })
+        .finally(() => {
+          submitButton.disabled = false;
+        });
+      });
+    }
+  });
+</script>
+{% endblock %}

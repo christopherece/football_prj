@@ -10,7 +10,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 class="display-4 mb-4" data-aos="fade-up">Lions Football Academy</h1>
+            <!-- <h1 class="display-4 mb-4" data-aos="fade-up">Lions Football Academy</h1> -->
             <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
               Developing the Next Generation of Footballers in New Zealand
             </p>
@@ -1387,35 +1387,112 @@ environment where young players are protected fron harm.
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="{% url 'pages:contact' %}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200" id="contactForm">
+              {% csrf_token %}
               <div class="row gy-4">
+                {% if messages %}
+                  {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+                
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
                 </div>
 
                 <div class="col-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
                 </div>
 
                 <div class="col-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
                 </div>
 
                 <div class="col-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
+                  <div class="loading" style="display: none;">Sending your message...</div>
+                  <button type="submit" id="submitButton">
+                    <span class="button-text">Send Message</span>
+                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                  </button>
                 </div>
-
               </div>
             </form>
+            
+            <style>
+              #submitButton:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+              }
+              .spinner-border {
+                vertical-align: middle;
+                margin-left: 8px;
+              }
+            </style>
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const form = document.getElementById('contactForm');
+              
+              if (form) {
+                form.addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  
+                  const formData = new FormData(form);
+                  const submitButton = document.getElementById('submitButton');
+                  const buttonText = submitButton.querySelector('.button-text');
+                  const spinner = submitButton.querySelector('.spinner-border');
+                  const loading = form.querySelector('.loading');
+                  
+                  // Show loading state
+                  loading.style.display = 'block';
+                  submitButton.disabled = true;
+                  buttonText.textContent = 'Sending...';
+                  spinner.classList.remove('d-none');
+                  
+                  // Submit form via AJAX
+                  fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                      'X-Requested-With': 'XMLHttpRequest',
+                      'X-CSRFToken': '{{ csrf_token }}'  // Fixed typo in header name
+                    }
+                  })
+                  .then(response => {
+                    if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                  })
+                  .then(data => {
+                    if (data.success) {
+                      // Show success alert and reset form
+                      alert(data.message || 'Thank you for your message! We will get back to you soon.');
+                      form.reset();
+                    } else {
+                      throw new Error(data.message || 'Form submission failed');
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Error:', error);
+                    alert(error.message || 'An error occurred while sending your message. Please try again.');
+                  })
+                  .finally(() => {
+                    loading.style.display = 'none';
+                    submitButton.disabled = false;
+                    buttonText.textContent = 'Send Message';
+                    spinner.classList.add('d-none');
+                  });
+                });
+              }
+            });
+            </script>
           </div><!-- End Contact Form -->
 
         </div>

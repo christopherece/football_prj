@@ -22,7 +22,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #012970; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #4154f1; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #E67e22; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -170,7 +170,6 @@ h6 {
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
   background: var(--accent-color);
-  font-size: 20px;
   padding: 8px 25px;
   margin: 0 0 0 30px;
   border-radius: 4px;
@@ -266,7 +265,7 @@ h6 {
   .navmenu li:hover>a,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-hover-color);
+    color: #E67e22;
   }
 
   .navmenu .dropdown ul {
@@ -303,7 +302,7 @@ h6 {
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
   .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
+    color: #E67e22;
   }
 
   .navmenu .dropdown:hover>ul {
@@ -383,24 +382,24 @@ h6 {
     justify-content: center;
     border-radius: 50%;
     transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    background-color: color-mix(in srgb, #E67e22, transparent 90%);
   }
 
   .navmenu a i:hover,
   .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
+    background-color: #E67e22;
     color: var(--contrast-color);
   }
 
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
+    color: #E67e22;
   }
 
   .navmenu .active i,
   .navmenu .active:focus i {
-    background-color: var(--accent-color);
+    background-color: #E67e22;
     color: var(--contrast-color);
     transform: rotate(180deg);
   }
@@ -491,7 +490,7 @@ h6 {
   .navmenu .listing-dropdown ul li a:hover,
   .navmenu .listing-dropdown ul li .active,
   .navmenu .listing-dropdown ul li .active:hover {
-    color: var(--nav-dropdown-hover-color);
+    color: #E67e22;
     background-color: var(--nav-dropdown-background-color);
   }
 
@@ -538,9 +537,9 @@ h6 {
 }
 
 .footer .footer-newsletter {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 97%);
-  border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
-  border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  background-color: color-mix(in srgb, #E67e22, transparent 97%);
+  border-top: 1px solid color-mix(in srgb, #E67e22, transparent 85%);
+  border-bottom: 1px solid color-mix(in srgb, #E67e22, transparent 85%);
   padding: 50px 0;
 }
 
@@ -554,7 +553,7 @@ h6 {
   padding: 6px 8px;
   position: relative;
   background-color: color-mix(in srgb, var(--background-color), transparent 50%);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border: 1px solid #E67e22;
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
   display: flex;
   transition: 0.3s;
@@ -779,7 +778,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 160px 0;
+  padding: 160px 80px 0 0;
   scroll-margin-top: 98px;
   overflow: clip;
 }
@@ -832,9 +831,7 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 100vh;
   position: relative;
-  padding: 80px 0 60px 0;
   display: flex;
   align-items: center;
   background: url(../img/hero-bg.png) top center no-repeat;
