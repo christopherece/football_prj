@@ -5,12 +5,12 @@
 {% block content %}
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <section id="hero" class="hero">
 
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <!-- <h1 class="display-4 mb-4" data-aos="fade-up">Lions Football Academy</h1> -->
+            <h1 class="display-4 mb-4" data-aos="fade-up">Lions Football Academy</h1>
             <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
               Developing the Next Generation of Footballers in New Zealand
             </p>
@@ -26,10 +26,12 @@
                 With decades of experience at the highest levels of football, our academy provides a clear pathway to elite football, building champions one player at a time.
               </p> -->
             </div>
-            <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="300">
-              <a href="{% url 'accounts:register' %}" class="btn-get-started">Join Our Academy <i class="bi bi-arrow-right"></i></a>
-              <a href="{% url 'pages:training' %}" class="btn btn-outline-primary mb-3 mb-md-0">
-                View Training Schedule <i class="bi bi-calendar3"></i>
+            <div class="d-flex flex-column flex-md-row gap-2" data-aos="fade-up" data-aos-delay="300">
+              <a href="{% url 'accounts:register' %}" class="btn btn-warning text-white flex-grow-1 text-center" style="background-color: #e67e22; border: none; padding: 10px 20px; font-weight: 600; border-radius: 4px; white-space: nowrap;">
+                Join Our Academy <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+              <a href="{% url 'pages:training' %}" class="btn btn-outline-warning flex-grow-1 text-center" style="color: #e67e22; border-color: #e67e22; padding: 10px 20px; font-weight: 600; border-radius: 4px; white-space: nowrap;">
+                View Training <span class="d-none d-md-inline">Schedule</span> <i class="bi bi-calendar3 ms-1"></i>
               </a>
             </div>
           </div>
@@ -76,33 +78,66 @@
     <!-- About Section -->
     <section id="about" class="about section">
 
-      <div class="container" data-aos="fade-up">
-        <div class="row gx-0">
-
-          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-            <div class="content">
-              <h2>Child Protection Policy</h2>
-              <!-- <h2>Developing Champions Through Excellence</h2> -->
-              <p>
-                Lions Football Academys ensures every child under 18 can enjoy a safe and fun football experience. Adopts The FA's safeguarding standards, prioritizing children's welfare at all times. The club requires background checks (Enhanced Disclosures) for anyone working with children, enforces claar conduct rules (no unsupervised one-on-one time, no inappropriate touch or language), and appointed a Club
-Welfare Officer to oversee safety and respond to concerns. All suspicions or allegations of abuse, including bullying, must be taken seriously and reported swiftly-either to the Welfare Officer, The FA Child Protection Manager, or
-relevant authorities. The policy also includes safe recruitment practices includes role profiles, interviews, and reference checks, Overall, the club is committed to creating a respectful, secure
-environment where young players are protected fron harm.
-              </p>
-              <div class="text-center text-lg-start">                <a href="#programs" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                  <span>Learn More</span>
-                  <i class="bi bi-arrow-right"></i>
-                </a>
+      <section style="background-color: #fff8f0; padding: 3rem 0;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="100">
+        <div class="px-3 px-md-4">
+          <h2 class="mb-4" style="color: #e67e22;">Our Commitment to Child Safety</h2>
+          <div class="mb-4">
+            <div class="d-flex align-items-start mb-4">
+              <div class="me-3" style="color: #e67e22;">
+                <i class="bi bi-shield-check fs-4"></i>
+              </div>
+              <div>
+                <h5 class="mb-2" style="color: #333;">Safe Environment</h5>
+                <p class="mb-0" style="color: #555;">Lions Football Academy is dedicated to providing a safe and enjoyable football experience for all children under 18, following The FA's safeguarding standards.</p>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-start mb-4">
+              <div class="me-3" style="color: #e67e22;">
+                <i class="bi bi-person-check fs-4"></i>
+              </div>
+              <div>
+                <h5 class="mb-2" style="color: #333;">Thorough Vetting</h5>
+                <p style="color: #555;">All staff and volunteers undergo Enhanced DBS checks and follow strict conduct guidelines, including no unsupervised one-on-one time and maintaining appropriate boundaries.</p>
+              </div>
+            </div>
+            
+            <div class="d-flex align-items-start">
+              <div class="me-3" style="color: #e67e22;">
+                <i class="bi bi-headset fs-4"></i>
+              </div>
+              <div>
+                <h5 class="mb-2" style="color: #333;">Dedicated Support</h5>
+                <p style="color: #555;">Our Club Welfare Officer oversees all safeguarding matters. Any concerns about a child's welfare are taken seriously and reported to the appropriate authorities.</p>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{% static 'assets/img/withcoach2.jpg' %}" class="img-fluid" alt="Professional football training session">
-          </div>
-
+          
+          <!-- <div class="mt-5">
+            <a href="#contact" class="btn btn-warning btn-lg" style="background-color: #e67e22; border: none; color: white; padding: 10px 25px; font-weight: 600;">
+              Contact Our Welfare Officer
+              <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div> -->
         </div>
       </div>
+      
+      <div class="col-12 col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left" data-aos-delay="200">
+        <div class="px-3 px-md-4">
+          <div class="position-relative rounded-4 overflow-hidden shadow-lg" style="border: 1px solid rgba(230, 126, 34, 0.2);">
+          <img src="{% static 'assets/img/withcoach2.jpg' %}" class="img-fluid" alt="Professional coach working with young players">
+          <div class="position-absolute bottom-0 start-0 p-4 w-100" style="background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));">
+            <h5 class="mb-1 text-white fw-bold" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Safe & Supportive Environment</h5>
+            <p class="small mb-0 text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">Our coaches are trained to create a positive and secure atmosphere for all players</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     </section><!-- /About Section -->
 
@@ -230,7 +265,7 @@ environment where young players are protected fron harm.
                   <li>Weekly matches</li>
                   <li>Parent education sessions</li>
                 </ul>
-                <a href="#" class="btn btn-primary btn-sm mt-3">Learn More</a>
+                <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a>
               </div>
             </div>
           </div><!-- End Card Item -->
@@ -247,7 +282,7 @@ environment where young players are protected fron harm.
                   <li>Strength & conditioning</li>
                   <li>Tournament preparation</li>
                 </ul>
-                <a href="#" class="btn btn-primary btn-sm mt-3">Learn More</a>
+                <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a>
               </div>
             </div>
           </div><!-- End Card Item -->
@@ -264,7 +299,7 @@ environment where young players are protected fron harm.
                   <li>Performance tracking</li>
                   <li>College placement assistance</li>
                 </ul>
-                <a href="#" class="btn btn-primary btn-sm mt-3">Learn More</a>
+                <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a>
               </div>
             </div>
           </div><!-- End Card Item -->
@@ -838,13 +873,29 @@ environment where young players are protected fron harm.
 
         /* Button adjustments */
         .btn-get-started {
-          padding: 1rem 2rem;
-          font-size: 1rem;
+          background: #e67e22;
+          color: white;
+          border-radius: 50px;
+          padding: 10px 30px;
+          white-space: nowrap;
+          transition: all 0.3s ease;
+          display: inline-block;
+          font-weight: 600;
+          border: none;
+          box-shadow: 0 2px 10px rgba(230, 126, 34, 0.3);
         }
 
         .btn-outline-light {
-          padding: 1rem 2rem;
-          font-size: 1rem;
+          background: #e67e22;
+          color: white;
+          border-radius: 50px;
+          padding: 10px 30px;
+          white-space: nowrap;
+          transition: all 0.3s ease;
+          display: inline-block;
+          font-weight: 600;
+          border: none;
+          box-shadow: 0 2px 10px rgba(230, 126, 34, 0.3);
         }
 
         /* Image adjustments */

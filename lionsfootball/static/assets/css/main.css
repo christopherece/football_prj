@@ -885,9 +885,8 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 160px 80px 0 0;
+  padding: 160px 0 0;
   scroll-margin-top: 98px;
-  overflow: clip;
 }
 
 @media (max-width: 1199px) {

@@ -85,6 +85,113 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+/* Standardize ALL paragraph styling */
+p,
+p.text-muted,
+p.lead,
+.about p,
+.about p.lead,
+.features p,
+.services p,
+.testimonials p,
+.team p,
+.contact p,
+.footer p,
+.card p,
+.card p.lead,
+.card p.text-muted,
+.navbar p,
+.hero p,
+.section p,
+#hero p,
+#about p,
+#services p,
+#features p,
+#contact p,
+#footer p,
+.modal p,
+.alert p,
+.tooltip p,
+.popover p,
+.dropdown-menu p {
+  /* Typography */
+  font-family: var(--default-font);
+  font-size: 1.1rem !important;
+  font-weight: 400;
+  line-height: 1.7 !important;
+  letter-spacing: 0.01em;
+  word-spacing: 0.05em;
+  
+  /* Colors */
+  color: var(--default-color) !important;
+  
+  /* Spacing */
+  margin-top: 0;
+  margin-bottom: 1.25rem !important;
+  
+  /* Other */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lead paragraphs - slightly different */
+p.lead,
+.lead p,
+.hero p,
+.jumbotron p,
+.hero-content p {
+  font-size: 1.25rem !important;
+  font-weight: 300;
+  line-height: 1.7 !important;
+  color: var(--default-color) !important;
+}
+
+/* Muted text - subtle variation */
+p.text-muted,
+.text-muted p,
+.card-text.text-muted,
+.footer p.text-muted {
+  opacity: 0.85 !important;
+  font-size: 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Small text */
+p.small,
+small p,
+footer p,
+.card-footer p {
+  font-size: 0.9375rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Remove bottom margin for last paragraph in containers */
+p:last-child,
+.card p:last-child,
+.media p:last-child,
+.media-body p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure proper spacing in lists */
+li p {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Fix for Bootstrap overrides */
+.card-text,
+.modal-body p,
+.tab-content p,
+.accordion-body p {
+  font-size: 1.1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 1.25rem !important;
 }
 
 /* PHP Email Form Messages
@@ -778,7 +885,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 160px 80px 0 0;
+  padding: 160px 0 0;
   scroll-margin-top: 98px;
   overflow: clip;
 }
@@ -950,7 +1057,6 @@ section,
 }
 
 .about .content h2 {
-  font-size: 24px;
   font-weight: 700;
 }
 

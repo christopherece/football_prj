@@ -3,41 +3,61 @@
 
 {% block content %}
 <!-- Training Schedule Section -->
-<section id="training" class="section">
-  <div class="container">
+<section id="training" class="bg-white">
+  <div class="container px-3 px-md-4 px-lg-5">
     <div class="row justify-content-center mb-5">
-      <div class="col-lg-8 text-center">
-        <h2 class="display-4 fw-bold mb-4" style="color: #012970;" data-aos="fade-up">Training Schedules</h2>
-        <p class="lead text-muted mb-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-12 col-lg-10 text-center">
+        
+        <h2 class="display-5 fw-bold mb-4 text-dark" data-aos="fade-up" data-aos-delay="50">
+          Training <span class="text-orange">Schedules</span>
+        </h2>
+        <div class="divider mx-auto bg-orange mb-4" data-aos="fade-up" data-aos-delay="100"></div>
+        <p class="lead text-muted mb-4 px-3" data-aos="fade-up" data-aos-delay="150">
           Our structured training programs are designed to develop players of all ages and skill levels.
           Choose the schedule that best fits your needs and start your football journey today!
         </p>
       </div>
     </div>
+  </div>
+</section>
 
-<!-- Training Images Section -->
-<section id="training-images" class="section bg-light">
-  <div class="container">
+<!-- Training Gallery Section -->
+<section id="training-gallery" class="py-5 bg-light">
+  <div class="container px-3 px-md-4 px-lg-5">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <p class="text-muted">Moments from our training sessions</p>
+    </div>
 
     {% if photos %}
-    <div class="row g-5">
+    <div class="row g-4">
       {% for photo in photos %}
-      <div class="col-12" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
-        <div class="training-photo-container mb-4">
-          <img 
-            src="{{ photo.image.url }}" 
-            class="img-fluid w-100 rounded shadow" 
-            alt="{{ photo.title }}"
-            style="max-height: 80vh; object-fit: contain;"
-            loading="lazy"
-          >
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+        <div class="card border-0 shadow-sm h-100 overflow-hidden" style="border-radius: 0.5rem;">
+          <div class="card-img-container position-relative bg-dark" style="min-height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-radius: 0.25rem 0.25rem 0 0;">
+            <img 
+              src="{{ photo.image.url }}" 
+              class="img-fluid" 
+              alt="{{ photo.title }}"
+              style="max-width: 100%; max-height: 300px; width: auto; height: auto; transition: transform 0.5s ease; object-fit: contain;"
+              loading="lazy"
+              onmouseover="this.style.transform='scale(1.05)'"
+              onmouseout="this.style.transform='scale(1)'"
+            >
+            <div class="position-absolute top-0 end-0 p-2">
+              <span class="badge bg-orange text-white">
+                <i class="bi bi-image me-1"></i> Photo {{ forloop.counter }}
+              </span>
+            </div>
+          </div>
+          {% if photo.title %}
+          <div class="card-body">
+            <h3 class="h5 fw-bold mb-2">{{ photo.title }}</h3>
+            <p class="text-muted small mb-0">
+              <i class="bi bi-calendar3 me-1"></i> {{ photo.created_at|date:"F j, Y" }}
+            </p>
+          </div>
+          {% endif %}
         </div>
-        {% if photo.title %}
-        <div class="text-center mb-5">
-          <h3 class="h4 mb-1">{{ photo.title }}</h3>
-          <p class="text-muted">Posted on {{ photo.created_at|date:"F j, Y" }}</p>
-        </div>
-        {% endif %}
       </div>
       {% endfor %}
     </div>
@@ -53,9 +73,9 @@
 
 
     <!-- Additional Information -->
-    <div class="row mt-5">
+    <!-- <div class="row mt-5">
       <div class="col-12">
-        <div class="bg-light p-4 rounded-3">
+        <div class="bg-light p-3 p-md-4 rounded-3">
           <h3 class="h4 mb-3">Important Information</h3>
           <div class="row g-4">
             <div class="col-md-6">
@@ -105,21 +125,21 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Register Button -->
     <div class="row mt-5">
       <div class="col-12 text-center">
-        <a href="{% url 'accounts:register' %}" class="btn btn-primary px-5 py-3">
-          Register for Training <i class="bi bi-arrow-right"></i>
+        <a href="{% url 'accounts:register' %}" class="btn btn-primary px-4 px-md-5 py-3" style="background-color: #e67e22; border: none; font-weight: 600;">
+          Register for Training <i class="bi bi-arrow-right ms-2"></i>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-
 <style>
+  /* Move styles to main.css if needed */
   #training-image .card {
     border: none;
     background: transparent;
@@ -129,6 +149,12 @@
   }
   #training-image .card:hover img {
     transform: scale(1.02);
+  }
+  /* Ensure images maintain aspect ratio */
+  .card-img-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 </style>
 {% endblock %}
