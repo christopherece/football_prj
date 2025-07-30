@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-s86^csc11zbql+ol!te7i8&4zrgiv+dzty=pg5xbz6(jox*pp+
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.10.250','lionsfootball.topitsolutions.co.nz','localhost','127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://lionsfootball.topitsolutions.co.nz','http://lionsfootball.topitsolutions.co.nz']
+CSRF_TRUSTED_ORIGINS = ['https://lionsfootball.co.nz','http://lionsfootball.co.nz']
 
 # Application definition
 
