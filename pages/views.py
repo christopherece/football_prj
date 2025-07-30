@@ -8,12 +8,18 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .models import Contact
 from lionsfootball.models import Gallery
+from gallery.models import Photo
 
 # Create your views here.
 
 def index(request):
     gallery_items = Gallery.objects.all()
-    return render(request, 'pages/index.html', {'gallery_items': gallery_items})
+    # Get the 4 most recent photos
+    recent_photos = Photo.objects.all().order_by('-uploaded_at')[:4]
+    return render(request, 'pages/index.html', {
+        'gallery_items': gallery_items,
+        'recent_photos': recent_photos
+    })
 
 def training(request):
     from .models import TrainingPhoto

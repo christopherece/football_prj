@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Photo Gallery - Lions Football Club{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'assets/css/gallery.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<main id="main">
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Photo Gallery</h2>
+                <p>Check out our latest photos from training and matches</p>
+            </div>
+
+            <div class="row">
+                {% for photo in photos %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <a href="{{ photo.image.url }}" class="glightbox" data-gallery="gallery-item">
+                            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" loading="lazy">
+                            <div class="gallery-links">
+                                <div class="gallery-links-title">
+                                    <h4>{{ photo.title }}</h4>
+                                    {% if photo.description %}
+                                    <p>{{ photo.description|truncatechars:50 }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12 text-center">
+                    <p>No photos available yet. Please check back soon!</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section><!-- End Gallery Section -->
+</main>
+{% endblock %}
+
+{% block extra_js %}
+<!-- GLightbox JS -->
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script>
+    // Initialize GLightbox for image lightbox
+    const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+    });
+</script>
+{% endblock %}

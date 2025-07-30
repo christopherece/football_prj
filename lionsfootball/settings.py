@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'lionsfootball.apps.LionsfootballConfig',
     'accounts.apps.AccountsConfig',
+    'gallery.apps.GalleryConfig',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

@@ -11,10 +11,11 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{% url 'pages:index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>Home</a></li>
+          <!-- <li><a href="{% url 'pages:index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>Home</a></li> -->
           <li><a href="{% url 'pages:index' %}#about" {% if request.resolver_match.url_name == 'index' and '#about' in request.get_full_path %}class="active"{% endif %}>About</a></li>
           <li><a href="{% url 'pages:index' %}#programs" {% if request.resolver_match.url_name == 'index' and '#programs' in request.get_full_path %}class="active"{% endif %}>Training Programs</a></li>
           <li><a href="{% url 'pages:index' %}#team" {% if request.resolver_match.url_name == 'index' and '#team' in request.get_full_path %}class="active"{% endif %}>Our Coaches</a></li>
+          <li><a href="{% url 'gallery:gallery' %}" {% if 'gallery' in request.path %}class="active"{% endif %}>Gallery</a></li>
           <li><a href="{% url 'pages:index' %}#contact" {% if request.resolver_match.url_name == 'index' and '#contact' in request.get_full_path %}class="active"{% endif %}>Contact</a></li>
           <li><a href="https://www.soccerunited.co.nz/?keyword_k=soccer+united&gad_source=1&gad_campaignid=20709391603&gbraid=0AAAAAoROBBkVOxSgcZ6HOOoWNdWIqjC9Q&gclid=Cj0KCQjw-ZHEBhCxARIsAGGN96LbLstudP9GrrA3-JvdNBKUdpjVVPDldWKZXVowEuC6-60wI-VRXcQaAmnaEALw_wcB&fbclid=IwY2xjawLyurhleHRuA2FlbQIxMABicmlkETE4c0g4TWRCMTRaSDJ5SEhUAR6lKisQGd_3JNJ2isVZE_iEEXa9SKWC-F3pdRYgV_FpFCsl_ybnj1Jx4NeRbw_aem_av2Xop5ynA3XWAigsTLquw" target="_blank">Shop</a></li>
           <!-- <li><a href="{% url 'accounts:register' %}">Register</a></li> -->

@@ -157,7 +157,7 @@
       <div class="container">
         <div class="row gy-5">
           <div class="col-xl-6 aos-init aos-animate" data-aos="zoom-out" data-aos-delay="100">
-            <img src="{% static 'assets/img/kickgirl.jpg' %}" class="img-fluid rounded-3 shadow-sm" alt="Professional training session">
+            <img src="{% static 'assets/img/photos/teamblack.jpg' %}" class="img-fluid rounded-3 shadow-sm" alt="Professional training session">
           </div>
 
           <div class="col-xl-6 d-flex">
@@ -265,7 +265,7 @@
                   <li>Weekly matches</li>
                   <li>Parent education sessions</li>
                 </ul>
-                <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a>
+                <!-- <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a> -->
               </div>
             </div>
           </div><!-- End Card Item -->
@@ -282,7 +282,7 @@
                   <li>Strength & conditioning</li>
                   <li>Tournament preparation</li>
                 </ul>
-                <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a>
+                <!-- <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a> -->
               </div>
             </div>
           </div><!-- End Card Item -->
@@ -299,7 +299,7 @@
                   <li>Performance tracking</li>
                   <li>College placement assistance</li>
                 </ul>
-                <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a>
+                <!-- <a href="#" class="btn btn-warning btn-sm mt-3" style="background-color: #e67e22; border: none; color: white; font-weight: 500;">Learn More</a> -->
               </div>
             </div>
           </div><!-- End Card Item -->
@@ -310,6 +310,38 @@
       </div>
 
     </section><!-- /Training Programs Section -->
+
+
+    <!-- Recent Gallery Photos Section -->
+    <section id="recent-gallery" class="recent-gallery section bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Recent Gallery Photos</h2>
+          <p>Check out our latest moments from training and matches</p>
+        </div>
+
+        <div class="row">
+          {% if recent_photos %}
+            {% for photo in recent_photos %}
+            <div class="col-lg-3 col-md-6 mb-4 d-flex">
+              <div class="gallery-item w-100" style="height: 250px; overflow: hidden;">
+                <a href="{{ photo.image.url }}" class="glightbox h-100 d-block" data-gallery="recent-gallery">
+                  <img src="{{ photo.image.url }}" alt="" class="img-fluid h-100 w-100" style="object-fit: cover; object-position: center;" loading="lazy">
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+            <div class="col-12 text-center mt-4">
+              <a href="{% url 'gallery:gallery' %}" class="btn btn-warning text-white" style="background-color: #e67e22; border: none; padding: 10px 25px; font-weight: 600; border-radius: 4px;">View Full Gallery <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          {% else %}
+            <div class="col-12 text-center">
+              <p>No photos available yet. Check back soon!</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section><!-- /Recent Gallery Photos Section -->
 
 
     <!-- Faq Section -->
@@ -1142,30 +1174,6 @@
         }
       }
     </style>
-    <section id="gallery" class="gallery section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Gallery</h2>
-        <p>Training Moments & Academy Highlights</p>
-      </div>
-
-      <div class="container">
-
-        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
-          {% for item in gallery_items %}
-          <div class="gallery-item filter-{{ item.category }}">
-            <a href="{{ item.image.url }}" class="glightbox gallery-link" data-gallery="gallery-items">
-              <img src="{{ item.image.url }}" alt="{{ item.title }}" class="gallery-image">
-              <div class="gallery-overlay">
-                <h4>{{ item.title }}</h4>
-                <p>{{ item.description }}</p>
-              </div>
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section><!-- /Gallery Section -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section">
