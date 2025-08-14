@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib import messages
 from .forms import UserRegistrationForm
+from django.contrib.auth.models import User
 
 def register(request):
     if request.method == 'POST':
@@ -10,7 +11,7 @@ def register(request):
             user = form.save()
             login(request, user)
             messages.success(request, 'Registration successful!')
-            return redirect('home')
+            return redirect('pages:index')
     else:
         form = UserRegistrationForm()
     
