@@ -12,6 +12,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <!-- <li><a href="{% url 'pages:index' %}" {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>Home</a></li> -->
+          
           <li><a href="{% url 'pages:index' %}#about" {% if request.resolver_match.url_name == 'index' and '#about' in request.get_full_path %}class="active"{% endif %}>About</a></li>
           <li><a href="{% url 'pages:index' %}#programs" {% if request.resolver_match.url_name == 'index' and '#programs' in request.get_full_path %}class="active"{% endif %}>Training Programs</a></li>
           <li><a href="{% url 'pages:index' %}#team" {% if request.resolver_match.url_name == 'index' and '#team' in request.get_full_path %}class="active"{% endif %}>Our Coaches</a></li>
@@ -36,11 +37,19 @@
               <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li>        -->
+          {% if user.is_authenticated %}
+        <form method="post" action="{% url 'accounts:logout' %}" class="d-inline">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger flex-md-shrink-0">Logout</button>
+        </form>
+      {% else %}
+        <a class="btn-getstarted flex-md-shrink-0" href="{% url 'accounts:register' %}">Register Now</a>
+      {% endif %}
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted flex-md-shrink-0" href="{% url 'accounts:register' %}">Register Now</a>
+      
 
     </div>
   </header>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5 mt-5" style="margin-top: 100px !important;">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-body p-4">
+          <h3 class="mb-4 text-center">User Profile: {{ user_obj.username }}</h3>
+          <div class="d-flex flex-column align-items-center mb-4">
+            {% if user_obj.profile.photo %}
+              <img src="{{ user_obj.profile.photo.url }}" class="rounded-circle shadow" style="width: 140px; height: 140px; object-fit: cover; border: 4px solid #eee;" alt="Profile Photo">
+            {% else %}
+              <img src="https://ui-avatars.com/api/?name={{ user_obj.first_name }}+{{ user_obj.last_name }}&size=140" class="rounded-circle shadow" style="width: 140px; height: 140px; object-fit: cover; border: 4px solid #eee;" alt="Profile Photo">
+            {% endif %}
+          </div>
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item"><strong>Username:</strong> {{ user_obj.username }}</li>
+            <li class="list-group-item"><strong>First Name:</strong> {{ user_obj.first_name }}</li>
+            <li class="list-group-item"><strong>Last Name:</strong> {{ user_obj.last_name }}</li>
+            <li class="list-group-item"><strong>Email:</strong> {{ user_obj.email }}</li>
+            <li class="list-group-item"><strong>Date Joined:</strong> {{ user_obj.date_joined|date:'Y-m-d H:i' }}</li>
+            <li class="list-group-item"><strong>Is Staff:</strong> {% if user_obj.is_staff %}<span class="badge bg-success">Yes</span>{% else %}<span class="badge bg-secondary">No</span>{% endif %}</li>
+          </ul>
+          {% if user_obj.profile %}
+          <hr>
+          <h5 class="mt-4">Profile Details</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Sex:</strong> {{ user_obj.profile.get_sex_display }}</li>
+            <li class="list-group-item"><strong>Date of Birth:</strong> {{ user_obj.profile.date_of_birth }}</li>
+            <li class="list-group-item"><strong>Nationality:</strong> {{ user_obj.profile.nationality }}</li>
+            <li class="list-group-item"><strong>Phone Number:</strong> {{ user_obj.profile.phone_number }}</li>
+            <li class="list-group-item"><strong>Address:</strong> {{ user_obj.profile.address }}</li>
+            <li class="list-group-item"><strong>Guardian Name:</strong> {{ user_obj.profile.guardian_name }}</li>
+            <li class="list-group-item"><strong>Guardian Phone:</strong> {{ user_obj.profile.guardian_phone }}</li>
+            <li class="list-group-item"><strong>Emergency Contact:</strong> {{ user_obj.profile.emergency_contact }}</li>
+            <li class="list-group-item"><strong>Emergency Phone:</strong> {{ user_obj.profile.emergency_phone }}</li>
+            <li class="list-group-item"><strong>Playing Position:</strong> {{ user_obj.profile.get_playing_position_display }}</li>
+            <li class="list-group-item"><strong>Preferred Foot:</strong> {{ user_obj.profile.get_preferred_foot_display }}</li>
+            <li class="list-group-item"><strong>Medical Conditions:</strong> {{ user_obj.profile.medical_conditions }}</li>
+            <li class="list-group-item"><strong>Notes:</strong> {{ user_obj.profile.notes }}</li>
+          </ul>
+          {% endif %}
+          <div class="d-flex flex-column flex-md-row justify-content-between mt-4 gap-2">
+            <a href="{% url 'user_list' %}" class="btn btn-secondary">Back to User List</a>
+            {% if user_obj.id == request.user.id or request.user.is_staff %}
+              <a href="{% url 'profile_edit' user_id=user_obj.id %}" class="btn btn-primary">Edit Profile</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

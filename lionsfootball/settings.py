@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'gallery.apps.GalleryConfig',
     'widget_tweaks',
+    'adminpanel',
 ]
 
 

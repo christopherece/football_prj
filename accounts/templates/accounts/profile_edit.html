@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container py-5 mt-5" style="margin-top: 100px !important;">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-body p-4">
+          <h3 class="mb-4 text-center">Edit Profile</h3>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="row">
+              <div class="col-12 mb-3 text-center">
+                {% if form.photo.value %}
+                  <img src="{{ form.instance.photo.url }}" class="rounded-circle shadow mb-2" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #eee;" alt="Profile Photo">
+                {% endif %}
+                {{ form.photo.label_tag }}
+                {{ form.photo }}
+              </div>
+              {% for field in form.visible_fields %}
+                {% if field.name != 'photo' %}
+                <div class="col-12 mb-3">
+                  {{ field.label_tag }}
+                  {{ field }}
+                  {% if field.help_text %}<small class="form-text text-muted">{{ field.help_text }}</small>{% endif %}
+                  {% for error in field.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+                </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+            <a href="{% url 'user_detail' user_id=request.user.id %}" class="btn btn-secondary w-100 mt-2">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
