@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'lionsfootball.apps.LionsfootballConfig',
     'accounts.apps.AccountsConfig',
     'gallery.apps.GalleryConfig',
+    'widget_tweaks',
 ]
 
 

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block content %}
 <div class="container-fluid bg-light py-5">
@@ -15,22 +16,107 @@
                     
                     <form method="POST" class="needs-validation" novalidate>
     {% csrf_token %}
-    {% for field in form %}
-        <div class="mb-3">
-            {{ field.label_tag }}
-            {{ field }}
-            {% if field.help_text %}
-                <small class="form-text text-muted">{{ field.help_text }}</small>
-            {% endif %}
-            {% for error in field.errors %}
-                <div class="text-danger small">{{ error }}</div>
-            {% endfor %}
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                {{ form.first_name|add_class:'form-control' }}
+                <label for="id_first_name">First Name</label>
+                {% for error in form.first_name.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
         </div>
-    {% endfor %}
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                {{ form.last_name|add_class:'form-control' }}
+                <label for="id_last_name">Last Name</label>
+                {% for error in form.last_name.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.username|add_class:'form-control' }}
+        <label for="id_username">Username</label>
+        {% for error in form.username.errors %}
+            <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.email|add_class:'form-control' }}
+        <label for="id_email">Email</label>
+        {% for error in form.email.errors %}
+            <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                {{ form.password1|add_class:'form-control' }}
+                <label for="id_password1">Password</label>
+                {% for error in form.password1.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                {{ form.password2|add_class:'form-control' }}
+                <label for="id_password2">Confirm Password</label>
+                {% for error in form.password2.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.date_of_birth|add_class:'form-control' }}
+        <label for="id_date_of_birth">Date of Birth</label>
+        {% for error in form.date_of_birth.errors %}
+            <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.phone_number|add_class:'form-control' }}
+        <label for="id_phone_number">Phone Number</label>
+        {% for error in form.phone_number.errors %}
+            <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form.address|add_class:'form-control' }}
+        <label for="id_address">Address</label>
+        {% for error in form.address.errors %}
+            <div class="text-danger small">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                {{ form.emergency_contact|add_class:'form-control' }}
+                <label for="id_emergency_contact">Emergency Contact</label>
+                {% for error in form.emergency_contact.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                {{ form.emergency_phone|add_class:'form-control' }}
+                <label for="id_emergency_phone">Emergency Phone</label>
+                {% for error in form.emergency_phone.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <div class="d-grid">
         <button type="submit" class="btn btn-primary btn-lg">Join Now</button>
     </div>
 </form>
+{% load widget_tweaks %}
+
                     </form>
 
                     <div class="text-center mt-4">
