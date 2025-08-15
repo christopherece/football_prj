@@ -12,7 +12,7 @@ def register(request):
             user = form.save()
             login(request, user)
             messages.success(request, 'Registration successful!')
-            return redirect('pages:index')
+            return redirect('accounts:user_profile')
     else:
         form = UserRegistrationForm()
     return render(request, 'accounts/register.html', {'form': form})
@@ -42,3 +42,10 @@ def profile_edit(request, user_id):
     else:
         form = ProfileUpdateForm(instance=profile)
     return render(request, 'accounts/profile_edit.html', {'form': form, 'profile_user': user})
+
+@login_required
+def user_profile(request):
+    if request.user.is_staff:
+        return redirect('/adminpanel/users/')
+    profile = request.user.profile
+    return render(request, 'accounts/user_profile.html', {'user': request.user, 'profile': profile})
