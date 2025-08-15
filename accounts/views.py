@@ -31,6 +31,11 @@ def profile_edit(request, user_id):
     if request.method == 'POST':
         form = ProfileUpdateForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
+            # Update User info
+            user.first_name = request.POST.get('first_name', user.first_name)
+            user.last_name = request.POST.get('last_name', user.last_name)
+            user.email = request.POST.get('email', user.email)
+            user.save()
             form.save()
             messages.success(request, 'Profile updated successfully!')
             return redirect('user_detail', user_id=user.id)

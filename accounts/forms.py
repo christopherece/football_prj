@@ -8,10 +8,19 @@ class ProfileUpdateForm(forms.ModelForm):
         model = Profile
         fields = ['photo', 'sex', 'date_of_birth', 'nationality', 'phone_number', 'address', 'guardian_name', 'guardian_phone', 'emergency_contact', 'emergency_phone', 'playing_position', 'preferred_foot', 'medical_conditions', 'notes']
         widgets = {
-            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
-            'address': forms.Textarea(attrs={'rows': 2}),
-            'medical_conditions': forms.Textarea(attrs={'rows': 2}),
-            'notes': forms.Textarea(attrs={'rows': 2}),
+            'sex': forms.Select(attrs={'class': 'form-control'}),
+            'date_of_birth': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'nationality': forms.TextInput(attrs={'class': 'form-control'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
+            'address': forms.Textarea(attrs={'rows': 2, 'class': 'form-control'}),
+            'guardian_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'guardian_phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'emergency_contact': forms.TextInput(attrs={'class': 'form-control'}),
+            'emergency_phone': forms.TextInput(attrs={'class': 'form-control'}),
+            'playing_position': forms.Select(attrs={'class': 'form-control'}),
+            'preferred_foot': forms.Select(attrs={'class': 'form-control'}),
+            'medical_conditions': forms.Textarea(attrs={'rows': 2, 'class': 'form-control'}),
+            'notes': forms.Textarea(attrs={'rows': 2, 'class': 'form-control'}),
         }
 
 class UserRegistrationForm(UserCreationForm):
