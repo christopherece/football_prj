@@ -22,11 +22,30 @@
 </section>
 
 <!-- Training Gallery Section -->
+<!-- Training Photo Upload Form (visible only to active users with add permission) -->
+{% if user.is_authenticated and user.is_active and perms.pages.add_trainingphoto %}
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h4 class="card-title mb-3">Upload Training Photo</h4>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Upload Photo</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
 <section id="training-gallery" class="py-5 bg-light">
   <div class="container px-3 px-md-4 px-lg-5">
-    <div class="section-header text-center mb-5" data-aos="fade-up">
+    <!-- <div class="section-header text-center mb-5" data-aos="fade-up">
       <p class="text-muted">Moments from our training sessions</p>
-    </div>
+    </div> -->
 
     {% if photos %}
     <div class="row g-4">
@@ -36,25 +55,29 @@
           <div class="card-img-container position-relative bg-dark" style="min-height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-radius: 0.25rem 0.25rem 0 0;">
             <img 
               src="{{ photo.image.url }}" 
-              class="img-fluid" 
+              class="img-fluid training-photo-thumb" 
               alt="{{ photo.title }}"
-              style="max-width: 100%; max-height: 300px; width: auto; height: auto; transition: transform 0.5s ease; object-fit: contain;"
+              style="max-width: 100%; max-height: 300px; width: auto; height: auto; transition: transform 0.5s ease; object-fit: contain; cursor: pointer;"
               loading="lazy"
+              data-bs-toggle="modal"
+              data-bs-target="#fullscreenPhotoModal"
+              data-photo-url="{{ photo.image.url }}"
+              data-photo-title="{{ photo.title }}"
               onmouseover="this.style.transform='scale(1.05)'"
               onmouseout="this.style.transform='scale(1)'"
             >
-            <div class="position-absolute top-0 end-0 p-2">
+            <!-- <div class="position-absolute top-0 end-0 p-2">
               <span class="badge bg-orange text-white">
                 <i class="bi bi-image me-1"></i> Photo {{ forloop.counter }}
               </span>
-            </div>
+            </div> -->
           </div>
           {% if photo.title %}
           <div class="card-body">
             <h3 class="h5 fw-bold mb-2">{{ photo.title }}</h3>
-            <p class="text-muted small mb-0">
+            <!-- <p class="text-muted small mb-0">
               <i class="bi bi-calendar3 me-1"></i> {{ photo.created_at|date:"F j, Y" }}
-            </p>
+            </p> -->
           </div>
           {% endif %}
         </div>
@@ -157,4 +180,38 @@
     object-fit: contain;
   }
 </style>
+<!-- Fullscreen Photo Modal -->
+<div class="modal fade" id="fullscreenPhotoModal" tabindex="-1" aria-labelledby="fullscreenPhotoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="fullscreenPhotoModalLabel"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center align-items-center" style="min-height:60vh;">
+        <img id="fullscreenPhotoImg" src="" alt="Photo" class="img-fluid w-100" style="object-fit:contain; max-height:70vh;">
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var photoModal = document.getElementById('fullscreenPhotoModal');
+    var photoImg = document.getElementById('fullscreenPhotoImg');
+    var photoTitle = document.getElementById('fullscreenPhotoModalLabel');
+    var thumbs = document.querySelectorAll('.training-photo-thumb');
+    thumbs.forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        var url = this.getAttribute('data-photo-url');
+        var title = this.getAttribute('data-photo-title');
+        photoImg.src = url;
+        photoTitle.textContent = title;
+      });
+    });
+    photoModal.addEventListener('hidden.bs.modal', function () {
+      photoImg.src = '';
+      photoTitle.textContent = '';
+    });
+  });
+</script>
 {% endblock %}

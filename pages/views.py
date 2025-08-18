@@ -21,11 +21,23 @@ def index(request):
         'recent_photos': recent_photos
     })
 
+from .forms import TrainingPhotoForm
+from .models import TrainingPhoto
+
+@require_http_methods(["GET", "POST"])
 def training(request):
-    from .models import TrainingPhoto
-    # Get all active photos, ordered by most recent first
+    if request.method == "POST":
+        form = TrainingPhotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Photo uploaded successfully!")
+            return redirect('pages:training')
+        else:
+            messages.error(request, "There was an error uploading the photo. Please check the form.")
+    else:
+        form = TrainingPhotoForm()
     photos = TrainingPhoto.objects.filter(is_active=True).order_by('-created_at')
-    return render(request, 'pages/training.html', {'photos': photos})
+    return render(request, 'pages/training.html', {'photos': photos, 'form': form})
 
 @require_http_methods(["GET", "POST"])
 def contact(request):

@@ -20,16 +20,16 @@ class Contact(models.Model):
     def __str__(self):
         return f"{self.name} - {self.subject}"
 
-# class TrainingPhoto(models.Model):
-#     title = models.CharField(max_length=200, help_text="A descriptive title for the photo")
-#     image = models.ImageField(upload_to=training_photo_upload_path, help_text="Upload a training photo")
-#     is_active = models.BooleanField(default=True, help_text="Uncheck to hide this photo from the training page")
-#     created_at = models.DateTimeField(default=timezone.now)
+class TrainingPhoto(models.Model):
+    title = models.CharField(max_length=200, help_text="A descriptive title for the photo")
+    image = models.ImageField(upload_to=training_photo_upload_path, help_text="Upload a training photo")
+    is_active = models.BooleanField(default=True, help_text="Uncheck to hide this photo from the training page")
+    created_at = models.DateTimeField(default=timezone.now)
 
-#     class Meta:
-#         ordering = ['-created_at']
-#         verbose_name = 'Training Photo'
-#         verbose_name_plural = 'Training Photos'
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Training Photo'
+        verbose_name_plural = 'Training Photos'
 
-#     def __str__(self):
-#         return self.title
+    def __str__(self):
+        return self.title
