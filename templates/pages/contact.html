@@ -53,45 +53,48 @@
         <form action="{% url 'pages:contact' %}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
           {% csrf_token %}
           
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-            {% endfor %}
-          {% endif %}
+          <!-- Toast container for messages -->
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+  <div id="toast-container" class="toast-container position-absolute top-0 end-0 p-3" style="z-index: 1080;"></div>
+</div>
+<!-- End Toast container -->
           
           <div class="row gy-4">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-            </div>
-
-            <div class="col-md-6 ">
-              <div class="form-group">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-              </div>
-            </div>
+  <div class="col-12">
+    {{ form.non_field_errors }}
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      {{ form.name.label_tag }}
+      {{ form.name }}
+      {{ form.name.errors }}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      {{ form.email.label_tag }}
+      {{ form.email }}
+      {{ form.email.errors }}
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      {{ form.subject.label_tag }}
+      {{ form.subject }}
+      {{ form.subject.errors }}
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-group">
+      {{ form.message.label_tag }}
+      {{ form.message }}
+      {{ form.message.errors }}
+    </div>
+  </div>
+</div>
 
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
               <button type="submit" class="btn btn-primary">Send Message</button>
             </div>
           </div>
@@ -128,13 +131,9 @@
         const formData = new FormData(form);
         const submitButton = form.querySelector('button[type="submit"]');
         const loading = form.querySelector('.loading');
-        const errorMessage = form.querySelector('.error-message');
-        const sentMessage = form.querySelector('.sent-message');
-        
         // Show loading state
         loading.style.display = 'block';
-        errorMessage.style.display = 'none';
-        sentMessage.style.display = 'none';
+        setTimeout(() => { loading.style.display = 'none'; }, 3000);
         submitButton.disabled = true;
         
         // Submit form via AJAX
@@ -149,18 +148,16 @@
         .then(response => response.json())
         .then(data => {
           loading.style.display = 'none';
-          
           if (data.success) {
-            sentMessage.style.display = 'block';
-            form.reset();
+            showToast('success', data.message);
+            form[0].reset();
           } else {
-            throw new Error(data.message || 'Form submission failed');
+            showToast('danger', data.message || 'Form submission failed');
           }
         })
         .catch(error => {
           loading.style.display = 'none';
-          errorMessage.textContent = error.message || 'An error occurred. Please try again.';
-          errorMessage.style.display = 'block';
+          showToast('danger', error.message || 'An error occurred. Please try again.');
         })
         .finally(() => {
           submitButton.disabled = false;
@@ -168,5 +165,30 @@
       });
     }
   });
+
+  function showToast(type, message) {
+    const toastContainer = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast align-items-center text-bg-${type} border-0`;
+    toast.role = 'alert';
+    toast.ariaLive = 'assertive';
+    toast.ariaAtomic = 'true';
+    const toastBody = document.createElement('div');
+    toastBody.className = 'toast-body';
+    toastBody.textContent = message;
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.className = 'btn-close btn-close-white me-2 m-auto';
+    closeButton.ariaLabel = 'Close';
+    closeButton.addEventListener('click', () => {
+      toast.remove();
+    });
+    toast.appendChild(toastBody);
+    toast.appendChild(closeButton);
+    toastContainer.appendChild(toast);
+    setTimeout(() => {
+      toast.remove();
+    }, 5000);
+  }
 </script>
 {% endblock %}

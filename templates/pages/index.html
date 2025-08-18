@@ -1483,6 +1483,22 @@
                 </div>
               </div>
             </form>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', function() {
+      // Remove any alert or modal logic here. Only show loading spinner.
+      const loading = form.querySelector('.loading');
+      if (loading) {
+        loading.style.display = 'block';
+        setTimeout(() => { loading.style.display = 'none'; }, 3000);
+      }
+    });
+  }
+});
+</script>
+
             
             <style>
               #submitButton:disabled {
@@ -1513,6 +1529,11 @@
                   submitButton.disabled = true;
                   buttonText.textContent = 'Sending...';
                   spinner.classList.remove('d-none');
+                  setTimeout(() => {
+                    spinner.classList.add('d-none');
+                    buttonText.textContent = 'Send Message';
+                    submitButton.disabled = false;
+                  }, 3000);
                   
                   // Submit form via AJAX
                   fetch(form.action, {
